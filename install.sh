@@ -44,10 +44,12 @@ EOF
 
 # install nvim
 mkdir -p ~/.config/nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-mv nvim.appimage ~/.local/bin/nvim
-
+curl -LO https://github.com/neovim/neovim/releases/download/v0.12.5/nvim-linux-x86_64.appimage
+chmod u+x ~/nvim-linux-x86_64.appimage
+~/nvim-linux-x86_64.appimage --appimage-extract
+mv ~/squashfs-root ~/.local/nvim-root
+rm ~/nvim-linux-x86_64.appimage
+ln -s ~/.local/nvim-root/usr/bin/nvim ~/.local/bin/nvim
 
 # install lazyVim
 git clone https://github.com/LazyVim/starter ~/.config/nvim
