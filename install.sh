@@ -5,7 +5,6 @@ set -euo pipefail  # Fail on errors, unset variables, and pipeline errors
 FISH_VERSION="4.9.3"
 FISH_URL="https://github.com/fish-shell/fish-shell/releases/download/${FISH_VERSION}/fish-${FISH_VERSION}-linux-x86_64.tar.xz"
 FISH_TAR="fish-${FISH_VERSION}-linux-x86_64.tar.xz"
-FISH_DIR="fish-${FISH_VERSION}-linux-x86_64"
 
 NEOVIM_VERSION="v0.12.5"
 NEOVIM_URL="https://github.com/neovim/neovim/releases/download/${NEOVIM_VERSION}/nvim-linux-x86_64.appimage"
@@ -24,7 +23,7 @@ echo "Extracting Fish Shell..."
 tar -xJf "$FISH_TAR" || { echo "Failed to extract Fish Shell"; exit 1; }
 rm "$FISH_TAR"
 
-mv "$FISH_DIR" ~/.local/fish
+mv ~/fish ~/.local/fish
 ln -sf ~/.local/fish/bin/fish ~/.local/bin/fish
 
 # Configure shell files
